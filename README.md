@@ -68,3 +68,14 @@ The primary goal of the GamerHUB website is to create a community of likeminded 
 7. Be able to delete all the reviews.
 8. Be able to delete all the games.
 9. Be able to delete all the profiles.
+
+
+### Development Planes
+
+In order to design and create the GamerHUB, the developer distinguished the required functionality of the site and how it would answer the user stories, as described above, using the **Five Development Planes**:
+
+<strong>1. <u>Strategy</u></strong>
+
+The GamerHUB is an online platform to access reviews of various video games with front-end and back-end functionality, developed using HTML, JavaScript, CSS, Python, Flask, and MongoDB. The main objective is to create a platform which is intuitive and allows the user to easily navigate and find reviews for their favourite games.
+
+
