@@ -160,11 +160,35 @@ I then chose to use the theme of cryptocurrencies as it is a popular topic in so
 
 - **Navbar** Created using the Materialize CSS framework. Navbar has the title on the left and the menu items on the right hand side. The navbar is fully responsive and change to match the device screen its being viewed on. Menu items will depend on if teh user is a visitor, user or admin.
 - **Main content:** This is where the various games will be found and reviews can be accessed.
+- **Search Bar:** This will allow the user to find a specific game by name or genre.
 - **Flash Messages:** These messages display just below the navbar and give confirmation to the user about actions being completed,
-- **Reset button:** A button to reset the game to try again.
-- **Time Counter** - A time counter, displaying the time elapsed since page load, gives users feedback on how long they have been playing, in minutes and seconds.
-- **Session Storage** - The `sessionStorage` function is used to store the user score from the previous round.
-- **Current Score:** To tell the player what their live score is in real time. This score counter goes up and down depending on how many correct/incorrect matches the user has.
+- **Add New Game:** Allows the user to add a new game.
+- **Edit New Game:** Allows the user to edit their own review.
+- **Delete Game:** Allows the admin to delete a game or review.
+- **LogIn/Register :** Allows the user to login and register for the website.
 
 ### Features Left to Implement
-- Filter restaurants by "has_vegan_options" or "has_gluten_free_options"
+- **Donations:** Would allow the user to mkae donation to the website to support future development.
+- **Filter** Filter games be certain criteria such as star rating.
+
+## Technologies Used
+
+### Languages and Frameworks
+
+- HTML for main structure of the website.
+- CSS to add custom styling to the project.
+- [Materialize](https://materializecss.com/) to utilise the grid system and various precoded card panels and buttons
+- [JQuery](https://code.jquery.com/) required to use some interactive elements on the materialize
+- [Jinja](jinja.palletsprojects.com) to be able to re-use certain elements from similar pages
+- [Flask](https://flask.palletsprojects.com/) to be used for the python element of the project
+
+### Applications
+
+- [MongoDB](https://www.mongodb.com/) the database chosen for the project to store all the data.
+- [Gitpod](https://gitpod.io/) the development platform for the project.
+- [GitHub](https://github.com/) for version control and to store the project after pushing.
+- [Heroku](https://www.heroku.com) to deploy the project.
+- [Figma](https://figma.com/) used for the wireframes for the project.
+- [Am I Responsive?](http://ami.responsivedesign.is/) Used to generate mockup imagery to be used.
+
+
