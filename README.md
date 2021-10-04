@@ -192,3 +192,50 @@ I then chose to use the theme of cryptocurrencies as it is a popular topic in so
 - [Am I Responsive?](http://ami.responsivedesign.is/) Used to generate mockup imagery to be used.
 
 
+## Deployment
+
+I used GitHub for my version control and Heroku to host the live version of my project. To deploy my website to Heroku, use following steps:
+
+1. Create the app in Heroku.
+2. Run the `npm install -g heroku` command in the terminal window to install heroku in the workspace.
+3. Run the `heroku login -i` command in the terminal window and enter credentials to login to Heroku.
+4. Add and committ the files to Git using the `git add .` and `git commit -m ""` commands in the terminal window.
+5. Create a requirements.txt file using the following command in the terminal window:
+
+    ```pip3 freeze --local > requirements.txt```
+
+7. Created a Procfile using the following command in the terminal window:
+
+  ```echo web: python <fileName.py> > Procfile```
+
+8. Run the `git push -u heroku main` command in the terminal window to push the app to Heroku.
+9. Login to the Heroku page and Entered the following Config Var in Heroku:
+   - IP : `0.0.0.0`
+   - PORT : `5000`
+   - MONGO_URI :`mongodb+srv://<username>:<password></password>@<cluster_name>.9kpcw.mongodb.net/<database></database>?retryWrites=true&w=majority` 
+   - SECRET_KEY : `<your_secret_key>`
+10. Select Deploy option on Heroku and choose Github as Deployment method then connect to Github and search for repositery to connect by providing the repo name on search box.
+11. Heroku will then detect the repo on Github then, click connect
+12. Choose main branch as branch to deploy and click Enable automatic Deploys
+13. your project has now deployed to Heroku
+14. In the top right of the heroku dashboard press the "Open App" button to view your deployed Heroku app.
+
+[Back to top ⇧](#table-of-contents)
+
+## Credits 
+
+### Images
+### Code 
+I consulted the following sites to better understand some elements of code:
+- [Stack Overflow](https://stackoverflow.com/ "Link to Stack Overflow page")
+- [W3Schools](https://www.w3schools.com/ "Link to W3Schools page")
+- [Bootstrap](https://getbootstrap.com/ "Link to BootStrap page")
+- [Codepen](https://codepen.io/ "Link to Codepen page")
+- [JSfiddle](https://jsfiddle.net/ "Link to JSfiddle page")
+
+## Acknowledgements
+
+- I would like to thank my friends and family for their time and opinions on the website.
+- I would like to thank my mentor, Seun, for her help and constructive feedback throughout the project.
+
+[Back to top ⇧](#table-of-contents)
