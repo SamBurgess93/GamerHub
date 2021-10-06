@@ -1,11 +1,40 @@
 {% extends "base.html" %}
 {% block content %}
 
+<div class="row">
+    <div class="col s12">
+      <h1 class="center-align general-title">You can filter your search by keyword or category</h1>
+    </div>
+</div>
+  
+  
+  
+  
+  <!-- Card panek-->
+  
+  {% if games|length > 0 %}
+  
+  {% for games in games %}
+  
+  <div class="row red darken-1">
+    <div class="col m4">
+        <img src="{{ games.game_image }}" alt="Video Game Image">
+    </div>
+  
+    <div class="col m8">
+      <ul>
+        <li><b>Name:</b> {{ games.game_name }}</li>
+        <li><b>Description:</b> {{ games.game_description }}</li>
+        <li><b>Genre:</b> {{ games.game_genre }}</li>
+      </ul>
+   
+    </div>  
+  </div>
+  {% endfor %}
+  
+  {% else %}
+  <h3 class="center-align">No Results were found, please try again</h3>
+  {% endif %}
 
-    {% for game in games %}
-        {{ game.game_name }}<br>
-        {{ game.game_description }}<br>
-        {{ game.game_genre }} <br>
-    {% endfor %}
 
 {% endblock %}

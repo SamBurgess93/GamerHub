@@ -16,10 +16,15 @@ mongo = PyMongo(app)
 
 
 @app.route("/")
+
 @app.route("/get_games")
 def get_games():
-    games = mongo.db.games.find()
-    return render_template("games.html", games=games)
+
+    # Find and display all technologies in database
+    games = list(mongo.db.games.find())
+    return render_template(
+        "games.html", games=games
+    )
 
 
 if __name__ == "__main__":
