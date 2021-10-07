@@ -119,6 +119,40 @@ def logout():
     return redirect(url_for("login"))
 
 
+@app.route("/add_game", methods=["GET", "POST"])
+def add_game():
+
+    if request.method == "POST":
+
+        # Check if the technology is already in the database
+        existing_game = mongo.db.technologies.find_one(
+            {"game_name": request.form.get("game_name")}
+        )
+
+        if existing_game:
+            flash("This game already exists")
+            return redirect(url_for("add_game"))
+
+        # Add the new technolgy to the database
+        newgame = {
+            "game_name": request.form.get("game_name"),
+            "game_genre": request.form.get("game_genre"),
+            "game_image": request.form.get("game_image"),
+            "game_description": request.form.get(
+                "game_description"),
+        }
+        mongo.db.technologies.insert_one(newgame)
+        flash("You have successfully added a new game Thank you!")
+        return redirect(url_for("profile", username=session["user"]))
+
+    categories = mongo.db.categories.find().sort("category_name", 1)
+    return render_template(
+        "add_game.html",
+        page_title="Add a Game",
+        categories=categories,
+    )
+
+
 
 
 if __name__ == "__main__":

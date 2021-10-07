@@ -8,11 +8,11 @@
 
     <!-- Code for form from Materialize.com -->
     <form class="col s12" method="POST" action="{{ url_for('add_game') }}">
-        <div class="card-panel">
-            <!-- Input for adding a technology's name  -->
+        <div class="card-panel grey lighten-5">
+            <!-- Input for adding a game's title  -->
             <div class="row">
                 <div class="input-field col s12">
-                    <i class="material-icons prefix purple-text text-darken-3">important_devices</i>
+                    <i class="fas fa-gamepad prefix blue-text text-darken-3"></i>
                     <input id="game_name" name="game_name" minlength="5" maxlength="30" type="text" class="validate" placeholder="Name" required />
                     <label for="game_name">Games's Title</label>
                 </div>
@@ -21,59 +21,41 @@
             <!-- Dropdown for picking a games's genre -->
             <div class="row">
                 <div class="input-field col s12">
-                    <i class="material-icons prefix purple-text text-darken-3">list</i>
+                    <i class="fas fa-mouse-pointer prefix blue-text text-darken-3"></i>
                     <select id="game_genre" name="game_genre" class="validate" required>
-                        <option value="" disabled selected>Choose a genre for your game</option>
+                        <option value="" disabled selected></option>
                         {% for category in categories %}
-                        <option value="{{ games.game_genre }}">{{ games.game_genre }}</option>
+                            <option value="{{ category.category_name }}">{{ category.category_name }}</option>
                         {% endfor %}
                     </select>
-                    <label for="game_genre">Choose a genre for your technology</label>
+                    <label for="game_genre">Genre</label>
                 </div>
             </div>
 
             <!-- Input for adding a technology image -->
             <div class="row">
                 <div class="input-field col s12">
-                    <i class="material-icons prefix purple-text text-darken-3">camera_alt</i>
-                    <input id="technology_image" name="technology_image" type="text" pattern="[(http(s)?):\/\/(www\.)?a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)" class="validate" placeholder="Important! Must be a url" required />
-                    <label for="technology_image">Game's Image</label>
+                    <i class="far fa-image prefix blue-text text-darken-3"></i>
+                    <input id="game_image" name="game_image" type="text" pattern="[(http(s)?):\/\/(www\.)?a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)" class="validate" placeholder="Important! Must be a url" required />
+                    <label for="game_image">Game's Image</label>
                 </div>
             </div>
 
             <!-- Input for adding a game description -->
             <div class="row">
                 <div class="input-field col s12">
-                    <i class="material-icons prefix purple-text text-darken-3">description</i>
+                    <i class="fas fa-file-alt prefix blue-text text-darken-3"></i>
                     <textarea id="game_description" name="game_description" minlength="5" maxlength="150" placeholder="Keep it brief (max 150 characters!)" class="materialize-textarea validate" required></textarea>
                     <label for="game_description">Description</label>
-                </div>
-            </div>
-
-            <!-- Input for adding a best bits about the game -->
-            <div class="row">
-                <div class="input-field col s12">
-                    <i class="material-icons prefix purple-text text-darken-3">thumb_up</i>
-                    <textarea id="best_bits" name="best_bits" minlength="5" maxlength="50" placeholder="Keep it REALLY short (max 50 characters!)" class="materialize-textarea validate" required></textarea>
-                    <label for="best_bits">Best bits</label>
-                </div>
-            </div>
-
-            <!-- Input for adding worst bits about the game -->
-            <div class="row">
-                <div class="input-field col s12">
-                    <i class="material-icons prefix purple-text text-darken-3">thumb_down</i>
-                    <textarea id="worst_bits" name="worst_bits" minlength="5" maxlength="50" placeholder="Keep it REALLY short (max 50 characters!)" class="materialize-textarea validate" required></textarea>
-                    <label for="worst_bits">Worst bits</label>
                 </div>
             </div>
 
             <!-- Submit button for adding a game -->
             <div class="row">
                 <div class="center-align col s6 offset-s3">
-                    <button type="submit" class="btn-large waves-effect waves-light purple lighten-1">Add this game now! <i class="material-icons right">add_circle_outline</i></button>
+                    <button type="submit" class="btn-large  blue lighten-1"><i class="material-icons right"></i>Add Game</button>
                     <!-- Button to cancel all changes and return to technologies -->
-                    <a href="{{ url_for('get_games') }}" class="btn-large waves-effect waves-light purple lighten-1"> Cancel <i class="material-icons right">close</i></a>
+                    <a href="{{ url_for('get_games') }}" class="btn-large waves-effect waves-light purple lighten-1"> Cancel <i class="material-icons right"></i></a>
                 </div>
             </div>
         </div>
