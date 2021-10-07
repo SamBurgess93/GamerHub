@@ -22,17 +22,17 @@
             <div class="row">
                 <div class="input-field col s12">
                     <i class="fas fa-mouse-pointer prefix blue-text text-darken-3"></i>
-                    <select id="game_genre" name="game_genre" class="validate" required>
+                    <select id="category_name" name="category_name" class="validate" required>
                         <option value="" disabled selected></option>
                         {% for category in categories %}
                             <option value="{{ category.category_name }}">{{ category.category_name }}</option>
                         {% endfor %}
                     </select>
-                    <label for="game_genre">Genre</label>
+                    <label for="category_name">Genre</label>
                 </div>
             </div>
 
-            <!-- Input for adding a technology image -->
+            <!-- Input for adding a game image -->
             <div class="row">
                 <div class="input-field col s12">
                     <i class="far fa-image prefix blue-text text-darken-3"></i>
@@ -40,6 +40,18 @@
                     <label for="game_image">Game's Image</label>
                 </div>
             </div>
+
+            <!--<div class="row">
+                <div class="file-field input-field col s12">
+                    <div class="btn">
+                        <span>Upload image</span>
+                        <input type="file" id="img_link" name="img_link" accept=".jpg,.jpeg,.png,.bmp,.webp" required>
+                    </div>
+                    <div class="file-path-wrapper">
+                        <input class="file-path validate" type="text">
+                    </div>
+                </div>
+            </div>-->
 
             <!-- Input for adding a game description -->
             <div class="row">
@@ -53,9 +65,11 @@
             <!-- Submit button for adding a game -->
             <div class="row">
                 <div class="center-align col s6 offset-s3">
-                    <button type="submit" class="btn-large  blue lighten-1"><i class="material-icons right"></i>Add Game</button>
+                    <button type="submit" class="btn-large  blue lighten-1 text-shadow">
+                        Add Game<i class="fas fa-plus-square right"></i>
+                    </button>
                     <!-- Button to cancel all changes and return to technologies -->
-                    <a href="{{ url_for('get_games') }}" class="btn-large waves-effect waves-light purple lighten-1"> Cancel <i class="material-icons right"></i></a>
+                    <a href="{{ url_for('get_games') }}" class="btn-large waves-effect waves-light purple lighten-1">Cancel</a>
                 </div>
             </div>
         </div>

@@ -229,6 +229,7 @@ I used GitHub for my version control and Heroku to host the live version of my p
 I consulted the following sites to better understand some elements of code:
 - [Stack Overflow](https://stackoverflow.com/ "Link to Stack Overflow page")
 - [W3Schools](https://www.w3schools.com/ "Link to W3Schools page")
+               https://www.w3schools.com/css/css3_object-fit.asp
 - [Bootstrap](https://getbootstrap.com/ "Link to BootStrap page")
 - [Codepen](https://codepen.io/ "Link to Codepen page")
 - [JSfiddle](https://jsfiddle.net/ "Link to JSfiddle page")

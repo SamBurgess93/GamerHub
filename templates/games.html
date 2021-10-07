@@ -16,18 +16,18 @@
   
   {% for games in games %}
   
-  <div class="row red darken-1">
+  <div class="row card-image red darken-1">
     <div class="col m4">
-        <img src="{{ games.game_image }}" alt="Video Game Image">
+        <img class="responsive-img" src="{{ games.game_image }}" alt="Video Game Image">
     </div>
   
     <div class="col m8">
       <ul>
         <li><b>Name:</b> {{ games.game_name }}</li>
         <li><b>Description:</b> {{ games.game_description }}</li>
-        <li><b>Genre:</b> {{ games.game_genre }}</li>
+        <li><b>Genre:</b> {{ games.category_name }}</li>
+        <li><b>Created By:</b> {{ games.created_by }}</li>
       </ul>
-   
     </div>  
   </div>
   {% endfor %}

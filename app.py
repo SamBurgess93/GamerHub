@@ -133,16 +133,17 @@ def add_game():
             flash("This game already exists")
             return redirect(url_for("add_game"))
 
-        # Add the new technolgy to the database
+        # Add the new game to the database
         newgame = {
             "game_name": request.form.get("game_name"),
-            "game_genre": request.form.get("game_genre"),
+            "category_name": request.form.get("category_name"),
             "game_image": request.form.get("game_image"),
             "game_description": request.form.get(
                 "game_description"),
+            "created_by": session["user"]
         }
-        mongo.db.technologies.insert_one(newgame)
-        flash("You have successfully added a new game Thank you!")
+        mongo.db.games.insert_one(newgame)
+        flash("You have successfully added a new game, thank you!")
         return redirect(url_for("profile", username=session["user"]))
 
     categories = mongo.db.categories.find().sort("category_name", 1)
