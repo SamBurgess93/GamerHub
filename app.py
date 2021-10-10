@@ -21,8 +21,17 @@ mongo = PyMongo(app)
 @app.route("/get_games")
 def get_games():
 
-    # Find and display all technologies in database
+    # Find and display all games in database
     games = list(mongo.db.games.find())
+    return render_template(
+        "games.html", games=games
+    )
+
+
+@app.route("/search", methods=["GET", "POST"])
+def search():
+    query = request.form.get("query")
+    games = list(mongo.db.games.find({"$text": {"$search": query}}))
     return render_template(
         "games.html", games=games
     )

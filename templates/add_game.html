@@ -3,77 +3,78 @@
 
 <div class="row">
     <div class="col s12">
-        <h1 class="center-align general-title">Add a game</h1>
+      <h1 class="center-align general-title">Add Game</h1>
     </div>
-
-    <!-- Code for form from Materialize.com -->
-    <form class="col s12" method="POST" action="{{ url_for('add_game') }}">
-        <div class="card-panel grey lighten-5">
-            <!-- Input for adding a game's title  -->
-            <div class="row">
-                <div class="input-field col s12">
-                    <i class="fas fa-gamepad prefix blue-text text-darken-3"></i>
-                    <input id="game_name" name="game_name" minlength="5" maxlength="30" type="text" class="validate" placeholder="Name" required />
-                    <label for="game_name">Games's Title</label>
-                </div>
-            </div>
-
-            <!-- Dropdown for picking a games's genre -->
-            <div class="row">
-                <div class="input-field col s12">
-                    <i class="fas fa-mouse-pointer prefix blue-text text-darken-3"></i>
-                    <select id="category_name" name="category_name" class="validate" required>
-                        <option value="" disabled selected></option>
-                        {% for category in categories %}
-                            <option value="{{ category.category_name }}">{{ category.category_name }}</option>
-                        {% endfor %}
-                    </select>
-                    <label for="category_name">Genre</label>
-                </div>
-            </div>
-
-            <!-- Input for adding a game image -->
-            <div class="row">
-                <div class="input-field col s12">
-                    <i class="far fa-image prefix blue-text text-darken-3"></i>
-                    <input id="game_image" name="game_image" type="text" pattern="[(http(s)?):\/\/(www\.)?a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)" class="validate" placeholder="Important! Must be a url" required />
-                    <label for="game_image">Game's Image</label>
-                </div>
-            </div>
-
-            <!--<div class="row">
-                <div class="file-field input-field col s12">
-                    <div class="btn">
-                        <span>Upload image</span>
-                        <input type="file" id="img_link" name="img_link" accept=".jpg,.jpeg,.png,.bmp,.webp" required>
-                    </div>
-                    <div class="file-path-wrapper">
-                        <input class="file-path validate" type="text">
-                    </div>
-                </div>
-            </div>-->
-
-            <!-- Input for adding a game description -->
-            <div class="row">
-                <div class="input-field col s12">
-                    <i class="fas fa-file-alt prefix blue-text text-darken-3"></i>
-                    <textarea id="game_description" name="game_description" minlength="5" maxlength="150" placeholder="Keep it brief (max 150 characters!)" class="materialize-textarea validate" required></textarea>
-                    <label for="game_description">Description</label>
-                </div>
-            </div>
-
-            <!-- Submit button for adding a game -->
-            <div class="row">
-                <div class="center-align col s6 offset-s3">
-                    <button type="submit" class="btn-large  blue lighten-1 text-shadow">
-                        Add Game<i class="fas fa-plus-square right"></i>
-                    </button>
-                    <!-- Button to cancel all changes and return to technologies -->
-                    <a href="{{ url_for('get_games') }}" class="btn-large waves-effect waves-light purple lighten-1">Cancel</a>
-                </div>
+</div>
+ 
+<!-- Code for form from Materialize.com -->
+<form class="col s12" method="POST" action="{{ url_for('add_game') }}">
+    <div class="card-panel grey lighten-5">
+        <!-- Input for adding a game's title  -->
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="fas fa-gamepad prefix blue-text text-darken-3"></i>
+                <input id="game_name" name="game_name" minlength="5" maxlength="30" type="text" class="validate" placeholder="Name" required />
+                <label for="game_name">Games's Title</label>
             </div>
         </div>
-    </form>
-</div>
+
+        <!-- Dropdown for picking a games's genre -->
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="fas fa-mouse-pointer prefix blue-text text-darken-3"></i>
+                <select id="category_name" name="category_name" class="validate" required>
+                    <option value="" disabled selected></option>
+                    {% for category in categories %}
+                        <option value="{{ category.category_name }}">{{ category.category_name }}</option>
+                    {% endfor %}
+                </select>
+                <label for="category_name">Genre</label>
+            </div>
+        </div>
+
+        <!-- Input for adding a game image -->
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="far fa-image prefix blue-text text-darken-3"></i>
+                <input id="game_image" name="game_image" type="text" pattern="[(http(s)?):\/\/(www\.)?a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)" class="validate" placeholder="Important! Must be a url" required />
+                <label for="game_image">Game's Image</label>
+            </div>
+        </div>
+
+        <!--<div class="row">
+            <div class="file-field input-field col s12">
+                <div class="btn">
+                    <span>Upload image</span>
+                    <input type="file" id="img_link" name="img_link" accept=".jpg,.jpeg,.png,.bmp,.webp" required>
+                </div>
+                <div class="file-path-wrapper">
+                    <input class="file-path validate" type="text">
+                </div>
+            </div>
+        </div>-->
+
+        <!-- Input for adding a game description -->
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="fas fa-file-alt prefix blue-text text-darken-3"></i>
+                <textarea id="game_description" name="game_description" minlength="5" maxlength="150" placeholder="Keep it brief (max 150 characters!)" class="materialize-textarea validate" required></textarea>
+                <label for="game_description">Description</label>
+            </div>
+        </div>
+
+        <!-- Submit button for adding a game -->
+        <div class="row">
+            <div class="center-align col s6 offset-s3">
+                <button type="submit" class="btn-large  blue lighten-1 text-shadow">
+                    Add Game<i class="fas fa-plus-square right"></i>
+                </button>
+                <!-- Button to cancel all changes and return to technologies -->
+                <a href="{{ url_for('get_games') }}" class=" btn-large orange darken-4 text-shadow">Cancel</a>
+            </div>
+        </div>
+    </div>
+</form>
+
 
 {% endblock %}
