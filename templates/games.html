@@ -47,10 +47,13 @@
         <li><b>Genre:</b> {{ games.category_name }}</li>
         <li><b>Created By:</b> {{ games.created_by }}</li>
       </ul>
-    </div>  
+      <a href="#" class="btn-small purple lighten-1">Add or read
+        reviews about {{ games.game_name}}</a>  
+    </div>
   </div>
   {% endfor %}
-  
+
+
   {% else %}
   <h3 class="center-align">No Results were found, please try again</h3>
   {% endif %}
