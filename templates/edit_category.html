@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h4 class="center-align general-title">{{ page_title }}</h1>
+
+<!-- Code for form from Materialize.com -->
+<div class="row">
+    <form class="col s12" method="POST" action="{{ url_for('edit_category', category_id=category._id) }}">
+        <div class="card-panel">
+
+            <!-- Input for adding a category name  -->
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix blue-text text-darken-3"></i>
+                    <input id="category_name" name="category_name" minlength="2" maxlength="100" type="text"
+                        class="validate" value="{{ category.category_name }}" placeholder="Name" required>
+                    <label for="category_name">Category to edit</label>
+                </div>
+            </div>
+
+            <!-- Submit button for adding a new category -->
+            <div class="row">
+                <div class="center-align col s6 offset-s3">
+                    <button type="submit" class="btn-large waves-effect waves-light blue lighten-1">
+                        Edit this category's name now! <i class=" material-icons right"></i>
+                    </button>
+
+                    <!-- Link as button to cancel and return to manage_categories -->
+                    <a href="{{ url_for('manage_categories') }}"
+                        class="btn-large waves-effect waves-light blue lighten-1">
+                        Cancel<i class=" material-icons right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+{% endblock %}

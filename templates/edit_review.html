@@ -13,7 +13,7 @@
             <!-- Input for adding the review being commented on -->
             <div class="row">
                 <div class="input-field col s12">
-                    <i class="material-icons prefix purple-text text-darken-3"></i>
+                    <i class="material-icons prefix blue-text text-darken-3"></i>
                     <input id="game_name" name="game_name" value="{{ review.game_name }}"
                         minlength="5" maxlength="100" type="text" class="validate" placeholder="Name" required>
                     <label for="game_name">Game</label>
@@ -23,7 +23,7 @@
             <!-- Input for editing a review's content -->
             <div class="row">
                 <div class="input-field col s12">
-                    <i class="material-icons prefix purple-text text-darken-3"></i>
+                    <i class="material-icons prefix blue-text text-darken-3"></i>
                     <textarea id="game_review" name="game_review" minlength="5" maxlength="300"
                         placeholder="Brief desciption, less than 300 characters!" class="materialize-textarea validate"
                         required>{{ review.game_review }}</textarea>
@@ -34,13 +34,13 @@
             <!-- Submit button for editting a comment  -->
             <div class="row">
                 <div class="center-align col s6 offset-s3">
-                    <button type="submit" class="btn-large waves-effect waves-light purple lighten-1">
+                    <button type="submit" class="btn-large waves-effect waves-light blue lighten-1">
                         Edit this comment<i class="material-icons right"></i>
                     </button>
 
                     <!-- Button to cancel all changes and return to technologies -->
                     <a href="{{ url_for('profile', username=session["user"]) }}"
-                        class="btn-large waves-effect waves-light purple lighten-1">
+                        class="btn-large waves-effect waves-light blue lighten-1">
                         Cancel Changes <i class="material-icons right"></i>
                     </a>
                 </div>

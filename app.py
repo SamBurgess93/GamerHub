@@ -294,6 +294,82 @@ def reviews(game_id):
     )
 
 
+@app.route("/manage_categories")
+def manage_categories():
+    categories = list(mongo.db.categories.find())
+    games = list(mongo.db.games.find())
+    reviews = list(mongo.db.reviews.find())
+    return render_template(
+        "manage_categories.html",
+        categories=categories,
+        games=games,
+        reviews=reviews,
+        page_title="Manage the Site",
+    )
+
+
+@app.route("/add_category", methods=["GET", "POST"])
+def add_category():
+
+    # Add a new category to the database
+    if request.method == "POST":
+
+        # Check if the category is already in the database
+        existing_category = mongo.db.categories.find_one(
+            {"category_name": request.form.get("category_name")}
+        )
+
+        if existing_category:
+            flash("This category already exists")
+            return redirect(url_for("add_category"))
+
+        newcategory = {"category_name": request.form.get(
+            "category_name")}
+        mongo.db.categories.insert_one(newcategory)
+        flash("You have successfully added a new category.")
+        return redirect(url_for("manage_categories"))
+
+    return render_template(
+        "add_category.html", page_title="Add a new Category")
+
+
+@app.route("/edit_category/<category_id>", methods=["GET", "POST"])
+def edit_category(category_id):
+
+    # Edit a technology in database
+    if request.method == "POST":
+        edittedcategory = {"category_name": request.form.get("category_name")}
+        mongo.db.categories.update(
+            {"_id": ObjectId(category_id)}, edittedcategory)
+        flash("The category was successfully editted")
+        return redirect(url_for("manage_categories"))
+
+    category = mongo.db.categories.find_one({"_id": ObjectId(category_id)})
+    return render_template(
+        "edit_category.html", category=category,
+        page_title="Edit this Category"
+    )
+
+
+@app.route("/delete_category/<category_id>")
+def delete_category(category_id):
+
+    # Find and then delete technologies in a the category being deleted
+    category_name = mongo.db.categories.find_one(
+        {"_id": ObjectId(category_id)}).get(
+        "category_name"
+    )
+
+    games = mongo.db.games.find({"category_name": category_name})
+
+    for game in games:
+        delete_game(game.get("_id"))
+
+    # Delete the category from database
+    mongo.db.categories.remove({"_id": ObjectId(category_id)})
+    flash("You have deleted this category")
+    return redirect(url_for("manage_categories"))
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
