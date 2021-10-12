@@ -4,6 +4,7 @@ from flask import (
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
+from datetime import datetime
 if os.path.exists("env.py"):
     import env
 
@@ -149,7 +150,9 @@ def add_game():
             "game_image": request.form.get("game_image"),
             "game_description": request.form.get(
                 "game_description"),
-            "created_by": session["user"]
+            "created_by": session["user"],
+            "added_on": datetime.now().strftime("%d, %B, %Y at %H:%M"),
+            "editted_on": "No edits yet",
         }
         mongo.db.games.insert_one(newgame)
         flash("You have successfully added a new game, thank you!")
@@ -163,6 +166,72 @@ def add_game():
     )
 
 
+@app.route("/add_review", methods=["POST"])
+def add_review():
+
+    if "user" in session:
+
+        # Add a comment to the database if logged in
+        review = {
+            "game_name": request.form.get("game_name"),
+            "game_review": request.form.get("game_review"),
+            "author": session["user"],
+            "created_on": datetime.now().strftime("%d, %B, %Y at %H:%M"),
+            "editted_on": "No edits yet",
+        }
+
+        mongo.db.reviews.insert_one(review)
+        flash("Your review has been added")
+        return redirect(url_for("profile", username=session["user"]))
+    else:
+        # If person is not registered redirect them to registration
+        flash("You must be registered to add a review")
+        return redirect(url_for("register"))
+
+
+@app.route("/edit_review/<review_id>", methods={"GET", "POST"})
+def edit_review(review_id):
+
+    # Edit a comment in database
+    if request.method == "POST":
+
+        created_on = mongo.db.reviews.find_one(
+            {"_id": ObjectId(review_id)}).get(
+            "created_on"
+        )
+
+        author = mongo.db.reviews.find_one(
+            {"_id": ObjectId(review_id)}).get("author")
+
+        editted_review = {
+            "game_name": request.form.get("game_name"),
+            "game_comment": request.form.get("game_comment"),
+            "author": author,
+            "created_on": created_on,
+            "editted_on": datetime.now().strftime("%d, %B, %Y at %H:%M"),
+        }
+        mongo.db.reviews.update(
+            {"_id": ObjectId(review_id)}, editted_review)
+
+        flash("Your review has been changed")
+        return redirect(url_for("profile", username=session["user"]))
+
+    comment = mongo.db.reviews.find_one({"_id": ObjectId(review_id)})
+    return render_template("edit_review.html", review=review)
+
+
+@app.route("/reviews/<game_id>", methods=["GET", "POST"])
+def reviews(game_id):
+    game = mongo.db.games.find_one(
+        {"_id": ObjectId(game_id)})
+    reviews = list(mongo.db.reviews.find(
+        {"game_name": game["game_name"]}))
+    return render_template(
+        "reviews.html",
+        game=game,
+        reviews=reviews,
+        page_title="Reviews",
+    )
 
 
 if __name__ == "__main__":
