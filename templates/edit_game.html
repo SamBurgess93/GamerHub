@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="row">
+    <div class="col s12 center-align">
+        <h1 class="general-title">Edit entry for {{ game.game_name}}</h1>
+    </div>
+
+    <!-- Code for form from Materialize.com -->
+    <form class="col s12" method="POST" action="{{ url_for('edit_game', game_id=game._id) }}">
+        <div class="card-panel">
+            <!-- Games's name  -->
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix purple-text text-darken-3"></i>
+                    <input id="game_name" name="game_name" value="{{ game.game_name }}"
+                        minlength="5" maxlength="100" type="text" class="validate" placeholder="Name" disabled />
+                    <label for="game_name">Game's name</label>
+                </div>
+            </div>
+
+            <!-- Dropdown for picking a game's category -->
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix purple-text text-darken-3"></i>
+                    <select id="category_name" name="category_name" class="validate" required>
+                        <option value="">Choose a category for your game</option>
+                        {% for category in categories %} {% if category.category_name == game.game_genre %}
+                        <option value="{{ category.category_name }}" selected>{{ category.category_name }}</option>
+                        {% else %}
+                        <option value="{{ category.category_name }}">{{ category.category_name }}</option>
+                        {% endif %} {% endfor %}
+                    </select>
+                    <label for="category_name">Choose a category for your game</label>
+                </div>
+            </div>
+
+            <!-- Input for adding a game image -->
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix purple-text text-darken-3"></i>
+                    <input id="game_image" name="game_image" value="{{ game.game_image }}"
+                        type="text" class="validate" placeholder="Important! Must be a url" required />
+                    <label for="game_image">Game's Image</label>
+                </div>
+            </div>
+
+            <!-- Input for adding a game description -->
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix purple-text text-darken-3"></i>
+                    <textarea id="game_description" name="game_description" minlength="5" maxlength="300"
+                        placeholder="Brief desciption, less than 300 characters!" class="materialize-textarea validate"
+                        required>{{ game.game_description }}
+                    </textarea>
+                    <label for="game_description">Description</label>
+                </div>
+            </div>
+
+            <!-- Submit button for adding a game -->
+            <div class="row">
+                <div class="center-align col s6 offset-s3">
+                    <button type="submit" class="btn-large waves-effect waves-light purple lighten-1">Edit this
+                        game now! <i class="material-icons right"></i></button>
+                    <!-- Button to cancel all changes and return to technologies -->
+                    <a href="{{ url_for('get_games') }}"
+                        class="btn-large waves-effect waves-light purple lighten-1"> Cancel Changes <i
+                            class="material-icons right"></i> </a>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+{% endblock %}

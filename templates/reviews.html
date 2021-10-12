@@ -9,7 +9,7 @@
     <!--game details-->
     <div class="row">
       <div class="col m6">
-        <img src="{{ game.game_image }}" alt="Picture of game">-->
+        <img src="{{ game.game_image }}" alt="Picture of game">
       </div>
   
       <div class="col l6">
@@ -72,8 +72,7 @@
         <div class="col s12">
             <div class="card">
             <div class="card-content ">
-                <h2 class="card-title comment-sub-heading"><b>Name:</b>{{ review.game_name }}</h2>
-                <p><b>Comment:</b>{{ review.game_review }}</p>
+                <p><b>Comment: </b>{{ review.game_review }}</p>
                 <p><em>Added by: {{ review.author|capitalize }}</em></p>
                 <p class="hide-on-small-only"><em>Added on: {{ review.created_on }}</em></p>
             </div>
@@ -86,13 +85,9 @@
     
             <!-- If no comments -->
             <div class="row">
-            <div class="col s12 center-align">
-            <h2 class="comment-sub-heading">No one has added a review yet - you can be the first!</h2>
-            <button class="btn-large waves-effect waves-light purple lighten-1 tooltipped" data-position="top"
-            data-tooltip="You can add comments from the games's card"><a class="white-text"
-                href="{{ url_for('get_games') }}">Add the first comment<i
-                class="fas fa-plus-circle prefix"></i></a></button>
-            </div>
+                <div class="col s12 center-align">
+                    <h3>No one has added a review yet - you can be the first!</h2>
+                </div>
             </div>
         </div>
         </div>

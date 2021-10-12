@@ -11,4 +11,91 @@
     </div>
 </div>
 
+<!-- List the games added by this user-->
+<div class="row">
+    <div class="col s12 m6">
+        {% if games|length > 0 %}
+        <h3 class="heading center-align">Your games</h3>
+        {% for game in games %}
+        <div class="card horizontal">
+            <div class="card-stacked">
+                <div class="card-content">
+                    <ul>
+                        <li><b>Category: </b>{{ game.category_name }}</li>
+                        <li><b>Name:</b> {{ game.game_name }}</li>
+                        <li><b>Added by you on:</b> {{ game.added_on }}</li>
+                    </ul>
+                </div>
+                <div class="card-action purple lighten-5">
+                    <a href="{{ url_for('edit_game', game_id=game._id) }}" class="waves-effect waves-light btn-small purple lighten-1 align-right"><i class="material-icons right"></i>Edit this game</a>
+                    <a class="waves-effect waves-light btn-small purple lighten-1 align-right modal-trigger" href="#modal{{ game._id }}"><i class="material-icons right"></i>Delete this game</a>
+                    <a class="waves-effect waves-light btn-small purple lighten-1 align-right modal-trigger" href="{{ url_for('reviews', game_id=game._id) }}">
+                        <i class="material-icons right"></i>Add a review
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!--  Delete game modal -->
+        <div id="modal{{ game._id }}" class="modal">
+            <div class="modal-content purple lighten-5">
+                <h4>Are you sure you want to delete this item?</h4>
+                <p>The entire entry and all its comments will be deleted and you will not be able to retrieve them</p>
+            </div>
+            <div class="modal-footer center-align purple lighten-5">
+                <a href="{{ url_for('delete_game', game_id=game._id) }}" class="modal-close waves-effect waves-light btn-small purple lighten-1 align-right">Yes I am certain I want to delete this</a>
+                <a href="{{ url_for('get_games', game_id=game._id) }}" class="modal-close waves-effect waves-light btn-small purple lighten-1 align-right">No, return to safety</a>
+            </div>
+        </div>
+
+        {% endfor %} {% else %}
+        <div class="center-align">
+            <h4>You haven't added any games yet</h4>
+            <a href="{{ url_for('add_game') }}" class="waves-effect waves-light btn-small purple lighten-1"><i class="fas fa-plus-square right"></i>Add one now</a>
+        </div>
+        {% endif %}
+    </div>
+
+    <div class="col s12 m6">
+        {% if reviews|length > 0 %}
+        <h3 class="heading center-align">Your reviews</h3>
+        {% for review in reviews %}
+        <div class="card horizontal">
+            <div class="card-stacked">
+                <div class="card-content">
+                    <ul>
+                        <li><b>Game:</b> {{ review.game_name }}</li>
+                        <li><b>Your review:</b> {{ review.game_review }}</li>
+                        <li><b>Added by you on:</b> {{ review.created_on }}</li>
+                        <li><b>Last edit was:</b> {{ review.editted_on }}</li>
+                    </ul>
+                </div>
+                <div class="card-action purple lighten-5">
+                    <a href="{{ url_for('edit_review', review_id=review._id) }}" class="waves-effect waves-light btn-small purple lighten-1 align-right"><i class="material-icons right"></i>Edit this review</a>
+                    <a class="waves-effect waves-light btn-small purple lighten-1 align-right modal-trigger" href="#modal{{ review._id }}"><i class="material-icons right"></i>Delete this comment</a>
+                </div>
+            </div>
+        </div>
+
+        <!--  Delete comment modal -->
+        <div id="modal{{ review._id }}" class="modal">
+            <div class="modal-content purple lighten-5">
+                <h4>Are you sure you want to delete this review?</h4>
+                <p>It will be permanenetly deleted</p>
+            </div>
+            <div class="modal-footer center-align purple lighten-5">
+                <a href="{{ url_for('delete_review', review_id=review._id) }}" class="modal-close waves-effect waves-light btn-small purple lighten-1 align-right">Yes I am certain I want to delete this</a>
+                <a href="{{ url_for('profile', username=session['user']) }}" class="modal-close waves-effect waves-light btn-small purple lighten-1 align-right">No, thanks</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+    <div class="center-align">
+        <h4>You haven't added any reviews yet</h4>
+        <a href="{{ url_for('get_games') }}" class="waves-effect waves-light btn-small purple lighten-1 align-right"><i class="material-icons right"></i>Pick a game to comment on</a>
+    </div>
+</div>
+
+{% endif %}
 {% endblock %}

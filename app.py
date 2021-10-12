@@ -114,9 +114,17 @@ def profile(username):
     # grab the session users username from the db
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
-    
+    reviews = list(mongo.db.reviews.find(
+        {"author": session["user"]}))
+    games = list(mongo.db.games.find(
+        {"created_by": session["user"]}))
     if session["user"]:
-        return render_template("profile.html", username=username)
+        return render_template(
+            "profile.html", 
+            username=username,
+            reviews=reviews,
+            games=games,
+            )
     
     return redirect(url_for("login"))
 
@@ -165,6 +173,50 @@ def add_game():
         categories=categories,
     )
 
+@app.route("/edit_game/<game_id>", methods=["GET", "POST"])
+def edit_game(game_id):
+
+    # Edit a game in database
+    if request.method == "POST":
+        gamename = mongo.db.games
+
+        filter = {"_id": ObjectId(game_id)}
+
+        newvalues = {
+            "$set": {
+                "category_name": request.form.get("category_name"),
+                "game_image": request.form.get("game_image"),
+                "game_description": request.form.get(
+                    "game_description"),
+            }
+        }
+
+        gamename.update_one(filter, newvalues)
+        flash("Your game has been updated. Thank you!")
+        return redirect(url_for("profile", username=session["user"]))
+
+    game = mongo.db.games.find_one(
+        {"_id": ObjectId(game_id)})
+    categories = mongo.db.categories.find().sort("category_name", 1)
+    return render_template(
+        "edit_game.html", game=game, categories=categories
+    )
+
+
+@app.route("/delete_game/<game_id>")
+def delete_game(game_id):
+
+    # Find and then delete comments on a game from database
+    game_name = mongo.db.games.find_one(
+        {"_id": ObjectId(game_id)}
+    ).get("game_name")
+    mongo.db.reviews.remove({"game_name": game_name})
+
+    # Delete a game from database
+    mongo.db.games.remove({"_id": ObjectId(game_id)})
+    flash("Your games has been deleted")
+    return redirect(url_for("profile", username=session["user"]))
+
 
 @app.route("/add_review", methods=["POST"])
 def add_review():
@@ -189,6 +241,14 @@ def add_review():
         return redirect(url_for("register"))
 
 
+@app.route("/delete_review/<review_id>")
+def delete_review(review_id):
+    # Delete a review from the database
+    flash("Your review has been deleted")
+    mongo.db.reviews.remove({"_id": ObjectId(review_id)})
+    return redirect(url_for("profile", username=session["user"]))
+
+
 @app.route("/edit_review/<review_id>", methods={"GET", "POST"})
 def edit_review(review_id):
 
@@ -205,7 +265,7 @@ def edit_review(review_id):
 
         editted_review = {
             "game_name": request.form.get("game_name"),
-            "game_comment": request.form.get("game_comment"),
+            "game_review": request.form.get("game_review"),
             "author": author,
             "created_on": created_on,
             "editted_on": datetime.now().strftime("%d, %B, %Y at %H:%M"),
@@ -216,7 +276,7 @@ def edit_review(review_id):
         flash("Your review has been changed")
         return redirect(url_for("profile", username=session["user"]))
 
-    comment = mongo.db.reviews.find_one({"_id": ObjectId(review_id)})
+    review = mongo.db.reviews.find_one({"_id": ObjectId(review_id)})
     return render_template("edit_review.html", review=review)
 
 
