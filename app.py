@@ -104,7 +104,7 @@ def login():
                 return redirect(url_for(
                     "profile", username=session["user"]))
             else:
-                #Invalid password match
+                # Invalid password match
                 flash("Incorrect username and/or password")
                 return redirect(url_for("login"))
         else:
