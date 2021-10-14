@@ -62,6 +62,7 @@ def register():
             "password": generate_password_hash(request.form.get("password")),
             "first_name": request.form.get("first_name").lower(),
             "last_name": request.form.get("last_name").lower(),
+            "is_admin": False,
             "email": request.form.get("email").lower()
         }
         mongo.db.users.insert_one(register)
@@ -89,6 +90,11 @@ def login():
         )
 
         if existing_user:
+            # Check if is_admin is true in database and if so
+            # set is_admin to true in session cookie
+            if existing_user["is_admin"] is True:
+                session["is_admin"] = True
+            
             # Check if the hashed password matches the user's password
             if check_password_hash(
                 existing_user["password"], request.form.get("password")
@@ -142,7 +148,7 @@ def add_game():
 
     if request.method == "POST":
 
-        # Check if the technology is already in the database
+        # Check if the game is already in the database
         existing_game = mongo.db.technologies.find_one(
             {"game_name": request.form.get("game_name")}
         )
@@ -369,6 +375,7 @@ def delete_category(category_id):
     mongo.db.categories.remove({"_id": ObjectId(category_id)})
     flash("You have deleted this category")
     return redirect(url_for("manage_categories"))
+
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
