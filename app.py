@@ -90,10 +90,6 @@ def login():
         )
 
         if existing_user:
-            # Check if is_admin is true in database and if so
-            # set is_admin to true in session cookie
-            if existing_user["is_admin"] is True:
-                session["is_admin"] = True
             
             # Check if the hashed password matches the user's password
             if check_password_hash(
@@ -342,7 +338,7 @@ def add_category():
 @app.route("/edit_category/<category_id>", methods=["GET", "POST"])
 def edit_category(category_id):
 
-    # Edit a technology in database
+    # Edit a game in database
     if request.method == "POST":
         edittedcategory = {"category_name": request.form.get("category_name")}
         mongo.db.categories.update(
@@ -359,17 +355,6 @@ def edit_category(category_id):
 
 @app.route("/delete_category/<category_id>")
 def delete_category(category_id):
-
-    # Find and then delete technologies in a the category being deleted
-    category_name = mongo.db.categories.find_one(
-        {"_id": ObjectId(category_id)}).get(
-        "category_name"
-    )
-
-    games = mongo.db.games.find({"category_name": category_name})
-
-    for game in games:
-        delete_game(game.get("_id"))
 
     # Delete the category from database
     mongo.db.categories.remove({"_id": ObjectId(category_id)})
