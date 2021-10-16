@@ -208,7 +208,7 @@ def edit_game(game_id):
 @app.route("/delete_game/<game_id>")
 def delete_game(game_id):
 
-    # Find and then delete comments on a game from database
+    # Find and then delete reviews on a game from database
     game_name = mongo.db.games.find_one(
         {"_id": ObjectId(game_id)}
     ).get("game_name")
@@ -225,7 +225,7 @@ def add_review():
 
     if "user" in session:
 
-        # Add a comment to the database if logged in
+        # Add a review to the database if logged in
         review = {
             "game_name": request.form.get("game_name"),
             "game_review": request.form.get("game_review"),
@@ -238,7 +238,7 @@ def add_review():
         flash("Your review has been added")
         return redirect(url_for("profile", username=session["user"]))
     else:
-        # If person is not registered redirect them to registration
+        # If person is not registered redirect them to register page
         flash("You must be registered to add a review")
         return redirect(url_for("register"))
 
@@ -254,7 +254,7 @@ def delete_review(review_id):
 @app.route("/edit_review/<review_id>", methods={"GET", "POST"})
 def edit_review(review_id):
 
-    # Edit a comment in database
+    # Edit a review in database
     if request.method == "POST":
 
         created_on = mongo.db.reviews.find_one(
