@@ -4,7 +4,7 @@ body {
     flex-direction: column;
     margin: 0;
     padding: 0;
-    background-color: #2927ce;
+    background-color: #495057;
     background-image: url("assets/img/background.jpg");
     background-position: center;
     background-repeat: no-repeat;
@@ -15,6 +15,26 @@ body {
     text-shadow: 2px 2px 2px rgba(0,0,0,0.5);
 }
 
+/* Colours */
+/* NavBar */
+nav {
+    background-color: #212529;
+}
+
+.card-panel{
+    background-color: #f8f9fa;
+}
+
+.btn-small {
+    background-color: #495057;
+    margin-bottom: 5px;
+}
+
+.btn:hover, .btn-large:hover, .btn-small:hover {
+    background-color: #6c757d;
+}
+
+
 .flashes h4{
     line-height: 2;
 }
@@ -23,4 +43,24 @@ img {
     width: 100%;
     object-fit: cover;
 }
+
+#myBtn {
+    display: none; /* Hidden by default */
+    position: fixed; /* Fixed/sticky position */
+    bottom: 20px; /* Place the button at the bottom of the page */
+    right: 30px; /* Place the button 30px from the right */
+    z-index: 99; /* Make sure it does not overlap */
+    border: none; /* Remove borders */
+    outline: none; /* Remove outline */
+    background-color: #212529; /* Set a background color */
+    color: white; /* Text color */
+    cursor: pointer; /* Add a mouse pointer on hover */
+    padding: 15px; /* Some padding */
+    border-radius: 10px; /* Rounded corners */
+    font-size: 18px; /* Increase font size */
+  }
+  
+  #myBtn:hover {
+    background-color: #6c757d; /* Add a dark-grey background on hover */
+  }
 
