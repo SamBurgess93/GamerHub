@@ -5,6 +5,8 @@ $(document).ready(function(){
     $('.collapsible').collapsible();
   });
 
+
+/* Code taken from and editted https://www.w3schools.com/howto/howto_js_scroll_to_top.asp */
 //Get the button:
 mybutton = document.getElementById("myBtn");
 

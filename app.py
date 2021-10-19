@@ -332,7 +332,7 @@ def add_category():
         return redirect(url_for("manage_categories"))
 
     return render_template(
-        "add_category.html", page_title="Add a new Category")
+        "add_category.html", page_title="Add a new Genre")
 
 
 @app.route("/edit_category/<category_id>", methods=["GET", "POST"])
