@@ -15,7 +15,7 @@
 <div class="row">
     <div class="col s12 m6">
         {% if games|length > 0 %}
-        <h3 class="heading center-align">Your games</h3>
+        <h3 class=" white-text text-shadow  heading center-align">Your games</h3>
         {% for game in games %}
         <div class="card horizontal">
             <div class="card-stacked">
@@ -49,7 +49,7 @@
         </div>
 
         {% endfor %} {% else %}
-        <div class="center-align">
+        <div class=" white-text text-shadow center-align">
             <h4>You haven't added any games yet</h4>
             <a href="{{ url_for('add_game') }}" class="waves-effect waves-light btn-small blue lighten-1"><i class="fas fa-plus-square right"></i>Add one now</a>
         </div>
@@ -58,7 +58,7 @@
 
     <div class="col s12 m6">
         {% if reviews|length > 0 %}
-        <h3 class="heading center-align">Your reviews</h3>
+        <h3 class="white-text text-shadow heading center-align">Your reviews</h3>
         {% for review in reviews %}
         <div class="card horizontal">
             <div class="card-stacked">
@@ -91,9 +91,9 @@
         {% endfor %}
     </div>
     {% else %}
-    <div class="center-align">
+    <div class=" white-text text-shadow center-align">
         <h4>You haven't added any reviews yet</h4>
-        <a href="{{ url_for('get_games') }}" class="waves-effect waves-light btn-small blue lighten-1 align-right"><i class="material-icons right"></i>Pick a game to comment on</a>
+        <a href="{{ url_for('get_games') }}" class="waves-effect waves-light btn-small blue lighten-1 align-right"><i class="fas fa-mouse-pointer right"></i>Pick a game to comment on</a>
     </div>
 </div>
 

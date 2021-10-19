@@ -3,7 +3,7 @@
 
 <div class="row">
     <div class="row">
-        <h4 class="center-align">Edit your comment on {{ review.game_name}}</h4>
+        <h4 class="white-text text-shadow  center-align">Edit your review on {{ review.game_name}}</h4>
     </div>
 
     <!-- Code for form from Materialize.com -->
@@ -35,13 +35,13 @@
             <div class="row">
                 <div class="center-align col s6 offset-s3">
                     <button type="submit" class="btn-large waves-effect waves-light blue lighten-1">
-                        Edit this comment<i class="material-icons right"></i>
+                        Edit this review<i class="fas fa-check right"></i>
                     </button>
 
                     <!-- Button to cancel all changes and return to technologies -->
                     <a href="{{ url_for('profile', username=session["user"]) }}"
-                        class="btn-large waves-effect waves-light blue lighten-1">
-                        Cancel Changes <i class="material-icons right"></i>
+                        class="btn-large waves-effect waves-light text-shadow orange darken-4">
+                        Cancel <i class="fas fa-times right"></i>
                     </a>
                 </div>
             </div>

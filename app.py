@@ -306,7 +306,7 @@ def manage_categories():
         categories=categories,
         games=games,
         reviews=reviews,
-        page_title="Manage the Site",
+        page_title="Manage the Sites Genres",
     )
 
 
