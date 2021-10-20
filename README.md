@@ -100,21 +100,21 @@ When looking at my structural plane I wanted to restrict certain functionality d
 
 Visitors (not registered users) will only only have access to the following:
 
-- Game reviews: lists all game reviews that have been approved by the admin
+- Game reviews: lists all game reviews that have been added by registered users
 - Log-in/Register: invites the visitor to register or login to the website
 
 On top of these pages, a logged in/ registered user will have access to:
 
-My Reviews: collections of all reviews left by the user. From here, they will also be able to edit or delete these reviews
-Add Review: from here, a user can add a new review for a restaurant only after being approved by an admin
-Edit: A user will be able to edit their own review
-Add Game: from here, a user can request to add a new restaurant to the list. This request will need to be approved by an admin user.
-Log-out: user can log out of their own profile
+My Games: collections of all reviews games left by the user From here, they will be able to edit or delete their games.
+Add Review: from here, a user can add a review for a new game or add a new review on an existing game.
+Edit: A user will be able to edit their own reviews.
+Add Game: from here, a user can add a new game to the list.
+Log-out: user can log out of their own profile.
 
 The admin user will also have access to:
 
-Approve Games: if a user requests a game that has not yet been entered, the admin will need to approve this
-Edit/Delete: only admin users will see edit/delete buttons for each game as well as a delete fucntion for each review.
+Add Genre: the admin will be able to add new genres to be available for users to pick.
+Edit/Delete: only admin users will see edit/delete buttons for each genre.
 
 
 <strong>4. <u>Skeleton</u></strong>
@@ -122,7 +122,7 @@ Edit/Delete: only admin users will see edit/delete buttons for each game as well
 Wireframe mockups were created in a [Figma Workspace](https://www.figma.com/file/2Nn1oK8aWFLJcHwU8yChCI/GamerHUB?node-id=0%3A1 "Link to GamerHUB Figma Workspace") with providing a positive user experience in mind:
 
 
-<strong>4. <u>Surface</u></strong>
+<strong>5. <u>Surface</u></strong>
 
 - <strong>Colour Scheme</strong>
 
@@ -132,22 +132,20 @@ Wireframe mockups were created in a [Figma Workspace](https://www.figma.com/file
 
      - A General palette was created, with this atmosphere in mind, and was used in designing graphics and complimentary text colour:
 
-          ![Colors](assets/readMe/color.png "General Colour Palette")
+          ![Colors](assets/readme/gamerhub.png "General Colour Palette")
 
 
 
 - <strong>Typography</strong>
 
-     - The primary font chosen is [Teko](https://fonts.google.com/specimen/Teko?preview.text_type=custom&query=teko). A sans-serif typeface, Teko is geometrically shaped and is easily readable.
+     - The primary font chosen is [Lato](https://fonts.google.com/specimen/Lato). A sans-serif typeface, Lato is geometrically shaped and is easily readable.
 
      - The charismatic combination of the typefaces compliments the clean aesthetic and entertaining theme set by the colour palette.
 
 ### Changes Made During Project Development 
-- When looking at the wireframes it is clear to see there was been a few chaages along the way since the early stages of the idea. I originally planned for a pattern to light up
-on the grid shown and the user to press the sqaures in the same pattern they had just seen. I had decided that this option was quite plain and uninviting as there was no theme involved.
-I then chose to use the theme of cryptocurrencies as it is a popular topic in society at this time. I decided to use different crypto logos to create a card matching game which would be more inviting for the user. Hence the title was changed from "RECALL" to "Crypto Memory".
+- When looking at the wireframes it is clear to see there was been a few chaanges along the way since the early stages of the idea. I had originally wanted to smaller grids and fit more cards in a row, I decided to change this and add more info in each cards such as "description", "genre", "created by" and "added on" and thus changed to one card per row.
 
-- In the orginal idea I wanted the game information to be placed near the bottom of the screen. As the project developed however I wanted to create a scorebaord area that held the game info/stats that could move dynamically around the screen depending on which device it was being played. This would show the current score, timer and moves as well as the area you reset the game, toggled the sound and could leave feedback for the developer.  
+- In the orginal idea I wanted to have a background image but I after some time I went for a simpler plain background inviting the user to focus more on the games and the websites features.
 
 [Back to top ⇧](#table-of-contents)
 
@@ -156,18 +154,18 @@ I then chose to use the theme of cryptocurrencies as it is a popular topic in so
  
 ### Existing Features
 
-- **Navbar** Created using the Materialize CSS framework. Navbar has the title on the left and the menu items on the right hand side. The navbar is fully responsive and change to match the device screen its being viewed on. Menu items will depend on if teh user is a visitor, user or admin.
+- **Navbar** Created using the Materialize CSS framework. Navbar has the title on the left and the menu items on the right hand side. The navbar is fully responsive and changes to match the device screen its being viewed on. Menu items will depend on if the user is a visitor, user or admin.
 - **Main content:** This is where the various games will be found and reviews can be accessed.
 - **Search Bar:** This will allow the user to find a specific game by name or genre.
-- **Flash Messages:** These messages display just below the navbar and give confirmation to the user about actions being completed,
+- **Flash Messages:** These messages display just below the navbar and give confirmation to the user about actions being completed.
 - **Add New Game:** Allows the user to add a new game.
-- **Edit New Game:** Allows the user to edit their own review.
-- **Delete Game:** Allows the admin to delete a game or review.
+- **Profile:** Allows the user to see their own games and reviews. Users will have the ability to edit and delete games/reviews from this page.
 - **LogIn/Register :** Allows the user to login and register for the website.
 
 ### Features Left to Implement
-- **Donations:** Would allow the user to mkae donation to the website to support future development.
-- **Filter** Filter games be certain criteria such as star rating.
+- **Donations:** Would allow the user to make donations to the website to support future development.
+- **Star Rating:** Users could choose a star rating when adding a game. Or leave a star rating for an existing game.
+- **Filter** Filter games be certain criteria such as genre.
 
 ## Technologies Used
 
@@ -186,7 +184,7 @@ I then chose to use the theme of cryptocurrencies as it is a popular topic in so
 - [Gitpod](https://gitpod.io/) the development platform for the project.
 - [GitHub](https://github.com/) for version control and to store the project after pushing.
 - [Heroku](https://www.heroku.com) to deploy the project.
-- [Figma](https://figma.com/) used for the wireframes for the project.
+- [Figma](https://figma.com/) used to create the wireframes for the project.
 - [Am I Responsive?](http://ami.responsivedesign.is/) Used to generate mockup imagery to be used.
 
 
