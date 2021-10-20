@@ -1,8 +1,8 @@
 # GamerHUB
 
-![Preview](assets/readMe/responsive.png)
+![Preview](assets/readme/responsive.PNG)
 
-[Link to the Live Project](#).
+[Link to the Live Project](https://gamer-hub-sam.herokuapp.com/).
 
 GamerHUB is a website where users can leave reviews on their favorite video games. All visitors to the website can read these reviews, but only members can add reviews or edit their own review.
 
@@ -45,7 +45,7 @@ The primary goal of the GamerHUB website is to create a community of likeminded 
 **As a first time user, I want to:**
 
 1. Easily understand the main purpose of the website.
-2. Navigate through the ste with ease
+2. Navigate through the site with ease
 3. Be able to register and create my own account.
 
 
@@ -62,12 +62,10 @@ The primary goal of the GamerHUB website is to create a community of likeminded 
 1. Be able to see all the games.
 2. Be able to see all the reviews.
 3. Be able to see all the users.
-4. Be able to edit all games.
-5. Be able to edit all the reviews.
-6. Be able to edit all the users.
-7. Be able to delete all the reviews.
-8. Be able to delete all the games.
-9. Be able to delete all the profiles.
+4. Be able to create new genres.
+5. Be able to edit all the genres.
+6. Be able to delete all the genres.
+7. 
 
 
 ### Development Planes

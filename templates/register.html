@@ -46,7 +46,7 @@
             <div class="row">
                 <div class="input-field col s12">
                     <i class="fas fa-user-lock prefix blue-text text-darken-3"></i>
-                    <input id="password" name="password" type="password" minlength="5" maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" class="validate" required />
+                    <input id="password" name="password" type="password" minlength="5" placeholder="alphanumeric characters only" maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" class="validate" required />
                     <label for="password">Password</label>
                 </div>
             </div>
@@ -55,7 +55,7 @@
             <div class="row">
                 <div class="input-field col s12">
                     <i class="fas fa-user-lock prefix blue-text text-darken-3"></i>
-                    <input id="confirm_password" name="confirm_password" type="password" minlength="5" maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" class="validate" required />
+                    <input id="confirm_password" name="confirm_password" type="password" placeholder="alphanumeric characters only" minlength="5" maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" class="validate" required />
                     <label for="confirm_password">Confirm Password</label>
                 </div>
             </div>
@@ -63,8 +63,8 @@
             <!-- Submit button -->
             <div class="row">
                 <div class="center-align col s6 offset-s3">
-                    <button type="submit" class="btn-large light-blue darken-4 text-shadow"> Register<i class="fas fa-sign-in-alt"></i></button>
-                    <p>If you have already joined us you can <a href="#" class="btn-small light-blue darken-4 text-shadow">Log in Here</a></p>
+                    <button type="submit" class="btn-large light-blue darken-4 text-shadow"> Register<i class="fas fa-sign-in-alt hide-on-small-only"></i></button>
+                    <p>If you have already joined us you can <a href="{{ url_for('login') }}" class="btn-small light-blue darken-4 text-shadow">Log in Here</a></p>
                 </div>
             </div>
 
