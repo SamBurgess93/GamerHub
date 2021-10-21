@@ -31,7 +31,7 @@ GamerHUB is a website where users can leave reviews on their favorite video game
 
 ## UX 
 ### Project Goals
-The scope of this project is to create a user centric website using the Flask, Python, MongoDB and Heroku.
+The scope of this project is to create a user centric website using Flask, Python, MongoDB and Heroku.
  
 This is my third Milestone Project that must be developed as part of my Full Stack software development course with Code Institute.
 
@@ -50,7 +50,7 @@ The primary goal of the GamerHUB website is to create a community of likeminded 
 
 
 **As a frequent user, I want to:**
-1. To search for specific games
+1. To search for specific games.
 2. Login to my own account.
 3. Add a game.
 4. Add a game review.
@@ -100,16 +100,16 @@ Visitors (not registered users) will only only have access to the following:
 
 On top of these pages, a logged in/ registered user will have access to:
 
-My Games: collections of all reviews games left by the user From here, they will be able to edit or delete their games.
-Add Review: from here, a user can add a review for a new game or add a new review on an existing game.
-Edit: A user will be able to edit their own reviews.
-Add Game: from here, a user can add a new game to the list.
-Log-out: user can log out of their own profile.
+- My Games: collections of all reviews games left by the user from here, they will be able to edit or delete their games.
+- Add Review: from here, a user can add a review for a new game or add a new review on an existing game.
+- Edit: A user will be able to edit their own reviews.
+- Add Game: from here, a user can add a new game to the list.
+- Log-out: user can log out of their own profile.
 
 The admin user will also have access to:
 
-Add Genre: the admin will be able to add new genres to be available for users to pick.
-Edit/Delete: only admin users will see edit/delete buttons for each genre.
+- Add Genre: the admin will be able to add new genres to be available for users to pick.
+- Edit/Delete: only admin users will see edit/delete buttons for each genre.
 
 
 <strong>4. <u>Skeleton</u></strong>
@@ -138,7 +138,7 @@ Wireframe mockups were created in a [Figma Workspace](https://www.figma.com/file
      - The charismatic combination of the typefaces compliments the clean aesthetic and entertaining theme set by the colour palette.
 
 ### Changes Made During Project Development 
-- When looking at the wireframes it is clear to see there was been a few chaanges along the way since the early stages of the idea. I had originally wanted to smaller grids and fit more cards in a row, I decided to change this and add more info in each cards such as "description", "genre", "created by" and "added on" and thus changed to one card per row.
+- When looking at the wireframes it is clear to see there was been a few changes along the way since the early stages of the idea. I had originally wanted to smaller grids and fit more cards in a row, I decided to change this and add more info in each cards such as "description", "genre", "created by" and "added on" and thus changed to one card per row.
 
 - In the orginal idea I wanted to have a background image but I after some time I went for a simpler plain background inviting the user to focus more on the games and the websites features.
 
@@ -223,7 +223,7 @@ A Local Clone of the repository can be made in two ways:
      By forking the GitHub Repository we make a copy of the original repository on our GitHub account to view and/or make changes without affecting the original repository by using the following steps:
 
      1. Log into [GitHub](https://github.com/login "Link to GitHub login page") or [create an account](https://github.com/join "Link to GitHub create account page").
-     2. Locate the [GitHub Repository](https://github.com/rebeccatraceyt/bake-it-til-you-make-it "Link to GitHub Repo").
+     2. Locate the [GitHub Repository](https://github.com/SamBurgess93/GamerHub "Link to GitHub Repo").
      3. At the top of the repository, on the right side of the page, select "Fork".
      4. You should now have a copy of the original repository in your GitHub account.
 
@@ -233,14 +233,14 @@ A Local Clone of the repository can be made in two ways:
      1. Install the [GitPod Browser](https://www.gitpod.io/docs/browser-extension/ "Link to Gitpod Browser extension download") Extension for Chrome.
      2. After installation, restart the browser.
      3. Log into [GitHub](https://github.com/login "Link to GitHub login page") or [create an account](https://github.com/join "Link to GitHub create account page").
-     2. Locate the [GitHub Repository](https://github.com/rebeccatraceyt/bake-it-til-you-make-it "Link to GitHub Repo").
+     2. Locate the [GitHub Repository](https://github.com/SamBurgess93/GamerHub"Link to GitHub Repo").
      5. Click the green "GitPod" button in the top right corner of the repository.
      This will trigger a new gitPod workspace to be created from the code in github where you can work locally.
 
      How to run this project within a local IDE, such as VSCode:
 
      1. Log into [GitHub](https://github.com/login "Link to GitHub login page") or [create an account](https://github.com/join "Link to GitHub create account page").
-     2. Locate the [GitHub Repository](https://github.com/rebeccatraceyt/bake-it-til-you-make-it "Link to GitHub Repo").
+     2. Locate the [GitHub Repository](https://github.com/SamBurgess93/GamerHub "Link to GitHub Repo").
      3. Under the repository name, click "Clone or download".
      4. In the Clone with HTTPs section, copy the clone URL for the repository.
      5. In your local IDE open the terminal.
