@@ -16,14 +16,13 @@ GamerHUB is a website where users can leave reviews on their favorite video game
     1. [Existing Features](#existing-features)
     2. [Features to Implement in the future](#features-to-implement-in-the-future)
 3. [Technologies Used](#technologies-used)
-     1. [Main Languages Used](#main-languages-used)
-     2. [Additional Languages Used](#additional-languages-used)
-     3. [Frameworks and Programs Used](#frameworks-and-programs-used)
+     1. [Languages and Frameworks](#languages-and-frameworks)
+     2. [Applications](#applications)
 4. [Testing](#testing)
 5. [Deployment](#deployment)
-     1. [Deploying on GitHub Pages](#deploying-on-github-pages)
-     2. [Forking the Repository](#forking-the-repository)
-     3. [Creating a Clone](#creating-a-clone)
+     1. [Database Creation](#database-creation)
+     2. [Local Copy Creation](#local-copy-creation)
+     3. [Heroku App Creation](#heroku-app-creation)
 6. [Credits](#credits)
      1. [Images](#images)
      2. [Code](#code)
@@ -187,34 +186,147 @@ Wireframe mockups were created in a [Figma Workspace](https://www.figma.com/file
 - [Figma](https://figma.com/) used to create the wireframes for the project.
 - [Am I Responsive?](http://ami.responsivedesign.is/) Used to generate mockup imagery to be used.
 
+## Testing
+
+[Click here to view the testing for this project!](assets/testing/testing.md)
+
 
 ## Deployment
 
-I used GitHub for my version control and Heroku to host the live version of my project. To deploy my website to Heroku, use following steps:
+To further develop this project, a clone can be made using the following steps:
+### Database Creation
+The application is connected to a [MongoDB Atlas](https://mongodb.com/ "Link to MongoDB Homeapage") Cluster. A Project database can be created using the following steps:
 
-1. Create the app in Heroku.
-2. Run the `npm install -g heroku` command in the terminal window to install heroku in the workspace.
-3. Run the `heroku login -i` command in the terminal window and enter credentials to login to Heroku.
-4. Add and committ the files to Git using the `git add .` and `git commit -m ""` commands in the terminal window.
-5. Create a requirements.txt file using the following command in the terminal window:
+1. Log into [MongoDB](https://account.mongodb.com/account/login "Link to MongoDB login page") or [create an account](https://account.mongodb.com/account/register "Link to MongoDB sign-up page").
+2. Locate and select the `New Project` button on the right side of the page, and give your project a name. Navigate to the project page.
+3. Locate and select the `Create a New Cluster` button on the right side of the page. Once selected:
+     - Choose **Shared Cluster** which is a free option.
+     - Select your **Cloud Provider** and **Region** (in this instance: **AWS** and **Ireland**).
+     - Click on **Cluster Tier** and select tier of preference (in this instance: **Basic M0 tier**).
+     - Click on **Cluster Name** and create your cluster name.
+4. Locate and select `Database Access` on the left side of the page. Once selected, click `Add New Database User`:
+     - Choose `Password` for the **Authentication Method**
+     - Enter a username and password of your choosing
+     - Ensure `Read and write to any database` is selected in **Database User Privileges**
+     - Add User
+5. Locate and select `Network Access` under `Database Access` on the left side of the page. Once selected, click `Add IP Address`:
+     - Select `Allow Access from anywhere` (This is not recommended for full-production applications).
+     - Select `Confirm`.
+6. Locate and select `Clusters` on the left side of the page (must be provisioned first).
+7. Click `Collections`, then `+ Create Database` to start adding documents to your database collections:
+     - Enter chosen `Database Name`
+     - Enter chosen `Collection Name`
+     - Select `Create`
+8. Click `Create Collection` and create the necessary collections.
 
-    ```pip3 freeze --local > requirements.txt```
+### Local Copy Creation
+A Local Clone of the repository can be made in two ways:
 
-7. Created a Procfile using the following command in the terminal window:
+- **Forking the Repository:**
 
-  ```echo web: python <fileName.py> > Procfile```
+     By forking the GitHub Repository we make a copy of the original repository on our GitHub account to view and/or make changes without affecting the original repository by using the following steps:
 
-8. Run the `git push -u heroku main` command in the terminal window to push the app to Heroku.
-9. Login to the Heroku page and Entered the following Config Var in Heroku:
-   - IP : `0.0.0.0`
-   - PORT : `5000`
-   - MONGO_URI :`mongodb+srv://<username>:<password></password>@<cluster_name>.9kpcw.mongodb.net/<database></database>?retryWrites=true&w=majority` 
-   - SECRET_KEY : `<your_secret_key>`
-10. Select Deploy option on Heroku and choose Github as Deployment method then connect to Github and search for repositery to connect by providing the repo name on search box.
-11. Heroku will then detect the repo on Github then, click connect
-12. Choose main branch as branch to deploy and click Enable automatic Deploys
-13. your project has now deployed to Heroku
-14. In the top right of the heroku dashboard press the "Open App" button to view your deployed Heroku app.
+     1. Log into [GitHub](https://github.com/login "Link to GitHub login page") or [create an account](https://github.com/join "Link to GitHub create account page").
+     2. Locate the [GitHub Repository](https://github.com/rebeccatraceyt/bake-it-til-you-make-it "Link to GitHub Repo").
+     3. At the top of the repository, on the right side of the page, select "Fork".
+     4. You should now have a copy of the original repository in your GitHub account.
+
+-  **Creating a Clone**
+
+     How to run this project locally:
+     1. Install the [GitPod Browser](https://www.gitpod.io/docs/browser-extension/ "Link to Gitpod Browser extension download") Extension for Chrome.
+     2. After installation, restart the browser.
+     3. Log into [GitHub](https://github.com/login "Link to GitHub login page") or [create an account](https://github.com/join "Link to GitHub create account page").
+     2. Locate the [GitHub Repository](https://github.com/rebeccatraceyt/bake-it-til-you-make-it "Link to GitHub Repo").
+     5. Click the green "GitPod" button in the top right corner of the repository.
+     This will trigger a new gitPod workspace to be created from the code in github where you can work locally.
+
+     How to run this project within a local IDE, such as VSCode:
+
+     1. Log into [GitHub](https://github.com/login "Link to GitHub login page") or [create an account](https://github.com/join "Link to GitHub create account page").
+     2. Locate the [GitHub Repository](https://github.com/rebeccatraceyt/bake-it-til-you-make-it "Link to GitHub Repo").
+     3. Under the repository name, click "Clone or download".
+     4. In the Clone with HTTPs section, copy the clone URL for the repository.
+     5. In your local IDE open the terminal.
+     6. Change the current working directory to the location where you want the cloned directory to be made.
+     7. Type 'git clone', and then paste the URL you copied in Step 3.
+     ```
+     git clone https://github.com/USERNAME/REPOSITORY
+     ```
+     8. Press Enter. Your local clone will be created.
+
+     (Further reading and troubleshooting on cloning a repository from GitHub [here](https://docs.github.com/en/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/cloning-a-repository "Link to GitHub troubleshooting"))
+
+Once a local clone is created, the environment variables have to be set:
+
+1. Create a `.gitignore` file in the project's root directory.
+2. In the terminal window, type `touch env.py` to create the file that will contain the environment variables. 
+3. Add `env.py` to the `.gitignore` file.
+4. Within the `env.py` file, enter the project's environment variables:
+```
+import os
+
+os.environ.setdefault("IP", "0.0.0.0")
+os.environ.setdefault("PORT", "5000")
+os.environ.setdefault("SECRET_KEY", <your_secret_key>)
+os.environ.setdefault("MONGO_URI", "mongodb+srv://<username>:<password>@<cluster_name>-ocous.mongodb.net/<database_name>?retryWrites=true&w=majority" )
+os.environ.setdefault("MONGO_DBNAME", <your_mongo_db_name>)
+```
+For the `MONGO_URI` ensure to replace `<username>`, `<password>`, `<cluster_name>` and `<database_name>` with the appropriate alternatives.
+
+
+
+### Heroku App Creation
+The website requires back-end technology, including a server, application and database. It is because of this that the project was deployed on **Heroku**, a container-based cloud Platform as a Service. There are two ways to deploy on Heroku:
+
+- Using the Heroku Command Line Interface
+- Connect to GitHub Repository (the developer recommends this method)
+
+Before deployment can be carried out on Heroku, the following steps must be carried out:
+
+1. Create a `requirements.txt` file to install all requirements. In the terminal window, type the following command:
+```
+pip3 install -r requirements.txt
+```
+2. Create a `Procfile` file so that Heroku knows which file runs the app. In the terminal window, type the following command:
+```
+echo web: python app.py > Procfile
+```
+*Remove the blank line that may occur at the end of the Procfile to avoid any issues*
+
+
+3. Push the two files to the repository:
+```
+git add requirements.txt
+git commit -m "Add requirements.txt"
+
+git add Procfile 
+git commit -m "Add Procfile"
+
+git push
+```
+Once these steps are completed, continue with the process:
+
+1. Log into [Heroku](https://id.heroku.com/login "Link to Heroku login page") or [create an account](https://signup.heroku.com/login "Link to Heroku sign-up page").
+2. Select the `New` button on the top-right of the page, and choose `Create New App`. Give your app a unique name and set the region (in this instance: **Europe**). Then click `Create App`.
+3. Navigate to the `Deploy` tab on the dashboard and select `Connect to GitHub`.
+4. Search for the repository name (ensuring it is spelled correctly). Once located, click `Connect`. 
+5. Navigate to the `Setting` tab on the dashboard and select `Reveal Config Vars`, entering the necessary key/values as below:
+
+| Key | Value |
+ --- | ---
+IP | 0.0.0.0
+PORT | 5000
+SECRET_KEY | `<your_secret_key>`
+MONGO_URI | `mongodb+srv://<username>:<password>@<cluster_name>-ocous.mongodb.net/<database_name>?retryWrites=true&w=majority`
+MONGO_DBNAME | `<your_mongo_db_name>`
+
+6. Navigate back to the `Deploy` tab and scroll down to `Automatic Deploys`.
+7. Ensure that the `master` branch is selected, then select `Enable Automatic Deploys`.
+
+Heroku will receive the pushed code from the GitHub repository and host the application with the required packages set out. 
+
+The deployed version can now be viewed by selecting `View App` in the top-right of the page.
 
 [Back to top ⇧](#table-of-contents)
 
@@ -225,7 +337,6 @@ I used GitHub for my version control and Heroku to host the live version of my p
 I consulted the following sites to better understand some elements of code:
 - [Stack Overflow](https://stackoverflow.com/ "Link to Stack Overflow page")
 - [W3Schools](https://www.w3schools.com/ "Link to W3Schools page")
-               https://www.w3schools.com/css/css3_object-fit.asp
 - [Bootstrap](https://getbootstrap.com/ "Link to BootStrap page")
 - [Codepen](https://codepen.io/ "Link to Codepen page")
 - [JSfiddle](https://jsfiddle.net/ "Link to JSfiddle page")
@@ -234,5 +345,6 @@ I consulted the following sites to better understand some elements of code:
 
 - I would like to thank my friends and family for their time and opinions on the website.
 - I would like to thank my mentor, Seun, for her help and constructive feedback throughout the project.
+- I would like to thank the tutors for their guidance on issues throughout the project.
 
 [Back to top ⇧](#table-of-contents)
