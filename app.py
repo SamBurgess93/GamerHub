@@ -145,7 +145,7 @@ def add_game():
     if request.method == "POST":
 
         # Check if the game is already in the database
-        existing_game = mongo.db.technologies.find_one(
+        existing_game = mongo.db.games.find_one(
             {"game_name": request.form.get("game_name")}
         )
 

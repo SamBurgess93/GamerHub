@@ -4,7 +4,7 @@
 
 [Link to the Live Project](https://gamer-hub-sam.herokuapp.com/).
 
-GamerHUB is a website where users can leave reviews on their favorite video games. All visitors to the website can read these reviews, but only members can add reviews or edit their own review.
+GamerHUB is a website where users can leave reviews on their favorite video games. All visitors to the website can read these reviews, but only members can add reviews or edit their own review. Registered users can also add, edit and delete their own games. An admin user can add, edit or delete genres.
 
 ## Table of contents
 1. [UX](#ux)
@@ -44,27 +44,23 @@ The primary goal of the GamerHUB website is to create a community of likeminded 
 **As a first time user, I want to:**
 
 1. Easily understand the main purpose of the website.
-2. Navigate through the site with ease
-3. Be able to register and create my own account.
+2. Navigate through the site with ease.
+3. See all game reviews.
+4. Be able to register and create my own account.
 
 
 **As a frequent user, I want to:**
 1. To search for specific games
 2. Login to my own account.
-3. Add a game review.
-4. Edit a game review that I had made previously.
-5. Delete a game review.
-6. Logout from my own profile.
+3. Add a game.
+4. Add a game review.
+5. Edit/delete a game I entered previously.
+6. Edit/delete a game review that I had made previously.
+7. Logout from my own profile.
 
 
-**As a frequent admin user, I want to:**
-1. Be able to see all the games.
-2. Be able to see all the reviews.
-3. Be able to see all the users.
-4. Be able to create new genres.
-5. Be able to edit all the genres.
-6. Be able to delete all the genres.
-7. 
+**As an admin user, I want to:**
+1. Be able to create new genres and also edit and delete them.
 
 
 ### Development Planes
@@ -127,7 +123,7 @@ Wireframe mockups were created in a [Figma Workspace](https://www.figma.com/file
 
      - I used the palette maker from the Coolors website to choose my color scheme.
 
-     - The chosen colour scheme was specifically selected in order to define the tone of the game.
+     - The chosen colour scheme was specifically selected in order to define the tone of the website.
 
      - A General palette was created, with this atmosphere in mind, and was used in designing graphics and complimentary text colour:
 
